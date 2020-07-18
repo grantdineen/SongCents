@@ -23,7 +23,7 @@ export class Artist extends Component {
         return (
             <div>
                 All Songs by : {this.props.match.params.name}
-                <SuspenseWithPerf fallback={<p>loading artists...</p>} traceId={'load-burrito-status'}>
+                <SuspenseWithPerf fallback={<p>loading songs...</p>}>
                     <Songs name={this.props.match.params.name} />
                 </SuspenseWithPerf>
             </div>

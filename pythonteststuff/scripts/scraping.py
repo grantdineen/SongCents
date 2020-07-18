@@ -15,7 +15,7 @@ class Song:
 	def __init__(self, title, artist, album, lyrics):
 		self.title = title
 		self.artist = artist
-		self.beginsWith = artist[0].lower()
+		self.beginsWith = artist[0].lower() if (artist[0].lower()).isalpha() else "Number"
 		self.album = album
 		self.lyrics = lyrics
 		
@@ -104,8 +104,8 @@ def get_links_to_artists_pages():
 	
 
 def main():
-	#song = get_song_info('https://www.azlyrics.com/lyrics/rush/tomsawyer.html')
-	#export_song_json(song)
+	song = get_song_info('https://www.azlyrics.com/lyrics/10cc/johnnydontdoit.html')
+	export_song_json(song)
 	#get_links_to_artists_pages()
 
 	

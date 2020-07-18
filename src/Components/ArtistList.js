@@ -36,7 +36,7 @@ export class ArtistList extends Component {
         return (
             <div>
                 All Artists starting with: {this.props.match.params.letter}
-                <SuspenseWithPerf fallback={<p>loading artists...</p>} traceId={'load-burrito-status'}>
+                <SuspenseWithPerf fallback={<p>loading artists...</p>}>
                     <Artists letter={this.props.match.params.letter} />
                 </SuspenseWithPerf>
             </div>
