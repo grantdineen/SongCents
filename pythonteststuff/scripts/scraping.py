@@ -97,16 +97,18 @@ def get_links_to_artists_pages():
 		page = requests.get("https://www.azlyrics.com/" + (letter if x < 26 else "19") + ".html")
 		soup = BeautifulSoup(page.content, 'html.parser')
 		
-		print("https://www.azlyrics.com/" + (letter if x < 26 else "19") + ".html")
+		links.append("https://www.azlyrics.com/" + (letter if x < 26 else "19") + ".html")
 		
 		#increment letter
 		letter = chr(ord(letter) + 1)
+		
+	return links
 	
 
 def main():
-	song = get_song_info('https://www.azlyrics.com/lyrics/10cc/johnnydontdoit.html')
-	export_song_json(song)
-	#get_links_to_artists_pages()
+	#song = get_song_info('https://www.azlyrics.com/lyrics/10cc/johnnydontdoit.html')
+	#export_song_json(song)
+	get_links_to_artists_pages()
 
 	
 main();

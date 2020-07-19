@@ -35,6 +35,7 @@ export default function Nav() {
                     <li><a href="/ArtistList/y">Y</a></li>
                     <li><a href="/ArtistList/z">Z</a></li>
                     <li><a href="/ArtistList/Number">#</a></li>
+                    <li><a href="/Song/Add">+</a></li>
                 </ul>
             </div>
         </nav>
