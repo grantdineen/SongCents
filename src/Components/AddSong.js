@@ -46,6 +46,10 @@ export class AddSong extends Component {
             album: '',
             artist: '',
             title: '',
+            titleError: '',
+            artistError: '',
+            albumError: '',
+            lyricsError: '',
             isButtonClicked: false,
             isSongAdded: false,
             newSongLink: ''
@@ -57,6 +61,7 @@ export class AddSong extends Component {
         this.handleLyricsChange = this.handleLyricsChange.bind(this);
         this.handleSumbit = this.handleSumbit.bind(this);
         this.finishSubmit = this.finishSubmit.bind(this);
+        this.validate = this.validate.bind(this);
     }
 
     handleTitleChange(event) {
@@ -77,7 +82,9 @@ export class AddSong extends Component {
 
     handleSumbit(event) {
         event.preventDefault();
-        this.setState({ isButtonClicked: true });
+        let isValid = this.validate();
+        if (isValid)
+            this.setState({ isButtonClicked: true });
     }
 
     finishSubmit() {
@@ -92,6 +99,40 @@ export class AddSong extends Component {
         });
     }
 
+    validate() {
+        let isValid = true;
+
+        if (this.state.title.length < 1) {
+            this.setState({ titleError: "Please enter a Title" });
+            isValid = false;
+        }
+        else
+            this.setState({ titleError: "" });
+
+        if (this.state.artist.length < 1) {
+            this.setState({ artistError: "Please enter an Artist" });
+            isValid = false;
+        }
+        else
+            this.setState({ artistError: "" });
+
+        if (this.state.album.length < 1) {
+            this.setState({ albumError: "Please enter an Album" });
+            isValid = false;
+        }
+        else
+            this.setState({ albumError: "" });
+
+        if (this.state.lyrics.length < 1) {
+            this.setState({ lyricsError: "Please enter Lyrics" });
+            isValid = false;
+        }
+        else
+            this.setState({ lyricsError: "" });
+
+        return isValid;
+    }
+
     render() {
         return (
             <div className="col-center comp-25-mobile-90">
@@ -100,18 +141,22 @@ export class AddSong extends Component {
                     <div className="form-group">
                         <label htmlFor="title">Title: </label>
                         <input id="title" className="form-control" type="text" value={this.state.title} onChange={this.handleTitleChange} />
+                        <div style={{ color: "red" }}>{this.state.titleError}</div>
                     </div>
                     <div className="form-group">
                         <label htmlFor="artist">Artist: </label>
                         <input id="artist" className="form-control" type="text" value={this.state.artist} onChange={this.handleArtistChange} />
+                        <div style={{ color: "red" }}>{this.state.artistError}</div>
                     </div>
                     <div className="form-group">
                         <label htmlFor="album">Album: </label>
                         <input id="album" className="form-control" type="text" value={this.state.album} onChange={this.handleAlbumChange} />
+                        <div style={{ color: "red" }}>{this.state.albumError}</div>
                     </div>
                     <div className="form-group">
                         <label htmlFor="lyrics">Lyrics: </label>
                         <textarea id="lyrics" className="form-control lyrics-textarea" value={this.state.lyrics} onChange={this.handleLyricsChange} />
+                        <div style={{ color: "red" }}>{this.state.lyricsError}</div>
                     </div>
                     <div className="text-right">
                         <input className="btn btn-primary align-right" type="submit" value="Add Song" />

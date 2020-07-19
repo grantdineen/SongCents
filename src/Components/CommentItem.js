@@ -10,7 +10,7 @@ export class CommentItem extends Component {
 
     render() {
         return (
-            <div className="panel panel-default comp-75-mobile-90 col-center">
+            <div className="panel panel-default comp-25-mobile-90 col-center">
                 <div className="panel-heading">
                     <div className="d-flex justify-content-between">
                         <div><b>{this.props.comment.username}</b></div>
