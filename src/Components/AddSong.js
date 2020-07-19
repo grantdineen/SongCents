@@ -70,11 +70,25 @@ export class AddSong extends Component {
         return (
             <div>
                 <form onSubmit={this.handleSumbit}>
-                    <input type="text" value={this.state.title} onChange={this.handleTitleChange} />
-                    <input type="text" value={this.state.artist} onChange={this.handleArtistChange} />
-                    <input type="text" value={this.state.album} onChange={this.handleAlbumChange} />
-                    <textarea value={this.state.lyrics} onChange={this.handleLyricsChange} />
-                    <input type="submit" value="Submit" />
+                    <div className="form-group">
+                        <label htmlFor="title">Title: </label>
+                        <input id="title" className="form-control" type="text" value={this.state.title} onChange={this.handleTitleChange} />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="artist">Artist: </label>
+                        <input id="artist" className="form-control" type="text" value={this.state.artist} onChange={this.handleArtistChange} />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="album">Album: </label>
+                        <input id="album" className="form-control" type="text" value={this.state.album} onChange={this.handleAlbumChange} />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="lyrics">Lyrics: </label>
+                        <textarea id="lyrics" className="form-control" value={this.state.lyrics} onChange={this.handleLyricsChange} />
+                    </div>
+                    <div className="text-right">
+                        <input className="btn btn-primary align-right" type="submit" value="Add Song" />
+                    </div>
                 </form>
                 {this.state.isButtonClicked &&
                     <SuspenseWithPerf fallback={<p>loading songs...</p>}>

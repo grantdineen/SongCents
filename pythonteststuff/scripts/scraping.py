@@ -106,9 +106,9 @@ def get_links_to_artists_pages():
 	
 
 def main():
-	#song = get_song_info('https://www.azlyrics.com/lyrics/10cc/johnnydontdoit.html')
-	#export_song_json(song)
-	get_links_to_artists_pages()
+	song = get_song_info('https://www.azlyrics.com/lyrics/nirvana/heartshapedbox.html')
+	export_song_json(song)
+	#get_links_to_artists_pages()
 
 	
 main();

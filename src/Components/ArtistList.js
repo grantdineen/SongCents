@@ -34,8 +34,10 @@ function Artists(props) {
 export class ArtistList extends Component {
     render() {
         return (
-            <div>
-                All Artists starting with: {this.props.match.params.letter}
+            <div className="col-center text-center">
+                <br />
+                <h3>All Artists starting with: {this.props.match.params.letter.toUpperCase()}</h3>
+                <hr />
                 <SuspenseWithPerf fallback={<p>loading artists...</p>}>
                     <Artists letter={this.props.match.params.letter} />
                 </SuspenseWithPerf>

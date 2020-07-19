@@ -17,4 +17,28 @@ a {
 .navbar-nav > li{
   padding-left:20px;
   padding-right:20px;
+  display: inline-block;
+}
+
+.col-center {
+  margin: 0 auto;
+}
+
+.panel > .panel-heading {
+  background-image: none;
+  background-color: #ddd;
+  color: #222;
+  padding: 10px;
+}
+
+.panel > .panel-body{
+  background-image: none;
+  color: #222;
+  padding: 10px;
+}
+
+.panel  {
+  border: 1px solid #999;
+  border-radius: 5px;
+  margin: 10px auto;
 }

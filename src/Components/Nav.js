@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Nav() {
     return (
-        <nav className="navbar navbar-default navbar-expand-lg bg-dark">
+        <nav className="navbar navbar-default navbar-expand bg-dark">
             <div className="container-fluid">
                 <div className="navbar-header">
                     <a className="navbar-brand" href="/">SongCents</a>

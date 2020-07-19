@@ -21,8 +21,10 @@ function Songs(props) {
 export class Artist extends Component {
     render() {
         return (
-            <div>
-                All Songs by : {this.props.match.params.name}
+            <div className="col-center text-center">
+                <br />
+                <h3>All Songs by : {this.props.match.params.name}</h3>
+                <hr />
                 <SuspenseWithPerf fallback={<p>loading songs...</p>}>
                     <Songs name={this.props.match.params.name} />
                 </SuspenseWithPerf>

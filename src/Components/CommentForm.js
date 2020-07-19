@@ -52,15 +52,24 @@ export class CommentForm extends Component {
 
     finishSubmit() {
         this.setState({ comment: '', username: '', isButtonClicked: false });
+        this.forceUpdate();
     }
 
     render() {
         return (
             <div>
                 <form onSubmit={this.handleSumbit}>
-                    <input type="text" value={this.state.username} onChange={this.handleUsernameChange} />
-                    <textarea value={this.state.comment} onChange={this.handleCommentChange} />
-                    <input type="submit" value="Submit" />
+                    <div className="form-group">
+                        <label htmlFor="username">Username: </label>
+                        <input id="username" className="form-control" type="text" value={this.state.username} onChange={this.handleUsernameChange} />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="comment">Comment: </label>
+                        <textarea id="comment" className="form-control" value={this.state.comment} onChange={this.handleCommentChange} />
+                    </div>
+                    <div className="text-right">
+                        <input className="btn btn-primary" type="submit" value="Post" />
+                    </div>
                 </form>
                 {this.state.isButtonClicked &&
                     <PostCommentForm
