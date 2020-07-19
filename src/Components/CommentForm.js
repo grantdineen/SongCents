@@ -57,7 +57,7 @@ export class CommentForm extends Component {
 
     render() {
         return (
-            <div>
+            <div className="col-center comp-25-mobile-90">
                 <form onSubmit={this.handleSumbit}>
                     <div className="form-group">
                         <label htmlFor="username">Username: </label>

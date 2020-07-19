@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { useFirestore, useFirestoreCollectionData, SuspenseWithPerf } from 'reactfire';
+import { useFirestore, SuspenseWithPerf } from 'reactfire';
+import { Redirect } from 'react-router-dom';
 
 function AddSongForm(props) {
     const songId = props.artist.replace(/ /g, '') + "-" + props.title.replace(/ /g, '');
@@ -30,7 +31,9 @@ export class AddSong extends Component {
             album: '',
             artist: '',
             title: '',
-            isButtonClicked: false
+            isButtonClicked: false,
+            isSongAdded: false,
+            newSongLink: ''
         };
 
         this.handleArtistChange = this.handleArtistChange.bind(this);
@@ -63,12 +66,21 @@ export class AddSong extends Component {
     }
 
     finishSubmit() {
-        this.setState({ title: '', artist: '', lyrics: '', album: '', isButtonClicked: false });
+        this.setState({
+            newSongLink: '/Song/' + this.state.artist + '/' + this.state.title,
+            title: '',
+            artist: '',
+            lyrics: '',
+            album: '',
+            isButtonClicked: false,
+            isSongAdded: true
+        });
     }
 
     render() {
         return (
-            <div>
+            <div className="col-center comp-75-mobile-90">
+                <br />
                 <form onSubmit={this.handleSumbit}>
                     <div className="form-group">
                         <label htmlFor="title">Title: </label>
@@ -84,7 +96,7 @@ export class AddSong extends Component {
                     </div>
                     <div className="form-group">
                         <label htmlFor="lyrics">Lyrics: </label>
-                        <textarea id="lyrics" className="form-control" value={this.state.lyrics} onChange={this.handleLyricsChange} />
+                        <textarea id="lyrics" className="form-control lyrics-textarea" value={this.state.lyrics} onChange={this.handleLyricsChange} />
                     </div>
                     <div className="text-right">
                         <input className="btn btn-primary align-right" type="submit" value="Add Song" />
@@ -103,6 +115,7 @@ export class AddSong extends Component {
                         />
                     </SuspenseWithPerf>
                 }
+                {this.state.isSongAdded && <Redirect to={this.state.newSongLink} />}
             </div>
         )
     }

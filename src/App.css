@@ -26,7 +26,7 @@ a {
 
 .panel > .panel-heading {
   background-image: none;
-  background-color: #ddd;
+  background-color: #eee;
   color: #222;
   padding: 10px;
 }
@@ -38,7 +38,35 @@ a {
 }
 
 .panel  {
-  border: 1px solid #999;
+  border: 1px solid #ccc;
   border-radius: 5px;
   margin: 10px auto;
+}
+
+pre {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: large;
+}
+
+.lyrics-textarea {
+  height: 60px;
+}
+
+.comp-25-mobile-90 {
+  width: 25%;
+}
+
+.comp-75-mobile-90 {
+  width: 75%;
+}
+
+@media (max-width:700px){
+  .comp-25-mobile-90 {
+      width: 90%;
+  }
+
+  .comp-75-mobile-90 {
+    width: 90%;
+  }
+
 }

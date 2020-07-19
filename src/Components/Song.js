@@ -43,10 +43,15 @@ export class Song extends Component {
     render() {
         return (
             <div>
-                {this.props.match.params.title}
-                <SuspenseWithPerf fallback={<p>loading song...</p>}>
-                    <SongItem artist={this.props.match.params.artist} title={this.props.match.params.title} />
-                </SuspenseWithPerf>
+                <br />
+                <div className="col-center comp-75-mobile-90 text-center">
+                    <h3>{this.props.match.params.title}</h3>
+                    <h6><a href={'/Artist/' + this.props.match.params.artist}>{this.props.match.params.artist}</a></h6>
+                    <hr />
+                    <SuspenseWithPerf fallback={<p>loading song...</p>}>
+                        <SongItem artist={this.props.match.params.artist} title={this.props.match.params.title} />
+                    </SuspenseWithPerf>
+                </div>
                 <br />
                 <br />
                 <CommentForm artist={this.props.match.params.artist} title={this.props.match.params.title} ></CommentForm>
