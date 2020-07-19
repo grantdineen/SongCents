@@ -58,7 +58,7 @@ export class Song extends Component {
                 <br />
                 <br />
                 <SuspenseWithPerf fallback={<p>loading comments...</p>}>
-                    <Comment artist={this.props.match.params.artist} title={this.props.match.params.title} forceUpdate={this.forceUpdate} />
+                    <Comment artist={this.props.match.params.artist} title={this.props.match.params.title} />
                 </SuspenseWithPerf>
             </div >
         )

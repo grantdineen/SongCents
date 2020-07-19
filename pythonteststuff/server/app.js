@@ -37,7 +37,8 @@ http.createServer(function (request, response) {
             "artist": song.artist,
             "album": song.album,
             "lyrics": song.lyrics,
-            "beginsWith": song.beginsWith
+            "beginsWith": song.beginsWith,
+            "date": new Date()
         }
 
         db.collection('songs').doc(createSongId(songDoc)).set(songDoc).then(() => {

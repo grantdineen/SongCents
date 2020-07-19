@@ -5,12 +5,15 @@ import { Redirect } from 'react-router-dom';
 function AddSongForm(props) {
     const songId = props.artist.replace(/ /g, '') + "-" + props.title.replace(/ /g, '');
 
+    const beginsWithChar = getBeginsWithChar(props.artist);
+
     const songDoc = {
         "title": props.title,
         "artist": props.artist,
         "lyrics": props.lyrics,
         "album": props.album,
-        "beginsWith": props.artist.toLowerCase()[0]
+        "beginsWith": beginsWithChar,
+        "date": new Date()
     }
 
     const collectionReference = useFirestore().collection('songs').doc(songId).set(songDoc).then(() => {
@@ -21,6 +24,18 @@ function AddSongForm(props) {
         });
 
     return (<p>Song Submitted!</p>)
+}
+
+//many band names start with "The ____"
+//if so, use the next char after that
+function getBeginsWithChar(artist) {
+    if (artist.length > 4) {
+        let first4Char = artist.substring(0, 4).toLowerCase();
+        if (first4Char === "the ")
+            return artist[4].toLowerCase();
+    }
+
+    return artist[0].toLowerCase();
 }
 
 export class AddSong extends Component {
@@ -79,7 +94,7 @@ export class AddSong extends Component {
 
     render() {
         return (
-            <div className="col-center comp-75-mobile-90">
+            <div className="col-center comp-25-mobile-90">
                 <br />
                 <form onSubmit={this.handleSumbit}>
                     <div className="form-group">

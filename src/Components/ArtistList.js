@@ -11,9 +11,6 @@ function Artists(props) {
     const queryRef = collectionReference.where('beginsWith', '==', props.letter);
 
     const songs = useFirestoreCollectionData(queryRef);
-    songs.forEach(data => {
-        console.log(data.title);
-    });
 
     let artists = [];
     songs.forEach(song => {
