@@ -1,10 +1,6 @@
 import React, { Component } from 'react'
 import { useFirestore, useFirestoreCollectionData, SuspenseWithPerf } from 'reactfire';
 
-function nextChar(c) {
-    return String.fromCharCode(c.charCodeAt(0) + 1);
-}
-
 function Artists(props) {
     const collectionReference = useFirestore().collection('songs');
 

@@ -53,7 +53,12 @@ export class Song extends Component {
                     </SuspenseWithPerf>
                 </div>
                 <br />
-                <br />
+                <div className="col-center comp-25-mobile-90">
+                    <h4 className="comp-25-mobile-90">Comments</h4>
+                </div>
+                <div className="col-center comp-75-mobile-90">
+                    <hr />
+                </div>
                 <CommentForm artist={this.props.match.params.artist} title={this.props.match.params.title} ></CommentForm>
                 <br />
                 <br />
