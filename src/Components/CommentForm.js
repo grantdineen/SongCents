@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { useFirestore, useFirestoreCollectionData, SuspenseWithPerf } from 'reactfire';
+import { useFirestore } from 'reactfire';
 
 function PostCommentForm(props) {
     const songId = props.artist.replace(/ /g, '') + "-" + props.title.replace(/ /g, '');
@@ -10,7 +10,7 @@ function PostCommentForm(props) {
         "date": new Date()
     }
 
-    const collectionReference = useFirestore().collection('songs').doc(songId).collection("comments").add(commentDoc).then(() => {
+    useFirestore().collection('songs').doc(songId).collection("comments").add(commentDoc).then(() => {
         props.finishSubmit();
     })
         .catch(err => {

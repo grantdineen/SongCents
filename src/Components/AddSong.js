@@ -16,7 +16,7 @@ function AddSongForm(props) {
         "date": new Date()
     }
 
-    const collectionReference = useFirestore().collection('songs').doc(songId).set(songDoc).then(() => {
+    useFirestore().collection('songs').doc(songId).set(songDoc).then(() => {
         props.finishSubmit();
     })
         .catch(err => {
@@ -168,8 +168,6 @@ export class AddSong extends Component {
                             artist={this.state.artist}
                             title={this.state.title}
                             lyrics={this.state.lyrics}
-                            title={this.state.title}
-                            artist={this.state.artist}
                             album={this.state.album}
                             finishSubmit={this.finishSubmit}
                         />

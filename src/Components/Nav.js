@@ -1,9 +1,5 @@
 import React from 'react'
 
-function nextChar(c) {
-    return String.fromCharCode(c.charCodeAt(0) + 1);
-}
-
 export default function Nav() {
     return (
         <nav className="navbar navbar-default navbar-expand">

@@ -6,8 +6,7 @@ import Song from './Components/Song';
 import AddSong from './Components/AddSong';
 import Home from './Components/Home';
 import './App.css';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { useFirestore, useFirestoreDoc, SuspenseWithPerf } from 'reactfire';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 
 
