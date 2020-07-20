@@ -11,7 +11,7 @@ function Songs(props) {
     return (
         <div>
             {
-                songs.map((data, index) => <p key={index}><a href={`/Song/${data.artist}/${data.title}`} > {data.title}</a></p>)
+                songs.map((data, index) => <p key={index}><a href={`/Song/${data.artist}/${data.title}`} >{data.artist} - {data.title}</a></p>)
             }
         </div >
     )
